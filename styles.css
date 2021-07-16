@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-weight: 400;
+  line-height: 1.6;
+  background: radial-gradient(#f7dad9, #f7dad9);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  min-height: 100vh;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+
+  font-family: Rochester;
+  font-size: 6rem;
+}
+.content-container {
+  padding: 1rem 2rem;
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #ffeac9;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+  border-radius: 2rem;
+}
+
+.post-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.secondary-content {
+  display: flex;
+  flex-basis: 10%;
+  flex-direction: column;
+  cursor: pointer;
+
+  margin-left: 5rem;
+  align-self: center;
+}
+
+.post-minutes {
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.post-date {
+  font-size: 1.3rem;
+}
+
+.primary-content {
+  flex-basis: 90%;
+
+  align-self: center;
+  flex-direction: column;
+}
+
+.post-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.post-description {
+  font-size: 2rem;
+}
