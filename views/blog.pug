@@ -11,12 +11,11 @@ html(lang='en')
         title DeghedEaT
     body
         .title DeghedeEaaT
-        each blog in blogs
-            .content-container
-                .post-container
-                    .secondary-content
-                        .post-minutes=`${blog.minutes === 0 ? 1 : blog.minutes} min read`
-                        .post-date= `${blog.date.getDate()}/${blog.date.getMonth() + 1}/${blog.date.getFullYear()}`
-                    .primary-content
-                        a.post-title(href=`${blog._id}`)= blog.title
-                        .post-description= blog.description
+        .content-container
+            .post-container
+                .secondary-content
+                    .post-minutes=`${blog.minutes === 0 ? 1 : blog.minutes} min read`
+                    .post-date= `${blog.date.getDate()}/${blog.date.getMonth() + 1}/${blog.date.getFullYear()}`
+                .primary-content
+                    a.post-title-final= blog.title
+                    .post-description= blog.content
