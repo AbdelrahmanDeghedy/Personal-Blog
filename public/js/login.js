@@ -11,8 +11,6 @@ document.querySelector(".login-form").addEventListener("submit", async (e) => {
   const response = await fetch(url, {
     method: "POST",
     mode: "cors",
-    cache: "no-cache",
-    credentials: "same-origin",
     headers: {
       "Content-Type": "application/json",
     },
