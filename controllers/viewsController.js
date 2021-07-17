@@ -23,3 +23,8 @@ exports.getOneBlog = async (req, res) => {
 exports.createBlog = (req, res) => {
   res.status(200).render("create");
 };
+
+exports.editBlog = async (req, res) => {
+  const blog = await Blog.findById(req.params.id);
+  res.status(200).render("edit", { blog });
+};
