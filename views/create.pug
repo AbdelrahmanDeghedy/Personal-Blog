@@ -1,0 +1,14 @@
+extends base
+block content 
+    form.form-container
+        label.section-title(for='title') Title
+        input(id='title')
+
+        label.section-title(for='description') Descrition
+        textarea(id='description')
+
+        label.section-title(for='content') Content
+        textarea(id='content')
+
+        button.submit(type='submit') Save
+    script(src='/js/index.js')
