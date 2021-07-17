@@ -56,7 +56,6 @@ exports.signup = async (req, res, next) => {
   const newUser = await User.create({
     email,
     password,
-    role,
   });
 
   createSendToken(newUser, res, 200);

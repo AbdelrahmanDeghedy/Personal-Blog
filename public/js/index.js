@@ -1,6 +1,4 @@
 const save = function (method, url) {
-  // console.log("test");
-
   document
     .querySelector(".form-container")
     .addEventListener("submit", async (e) => {
@@ -10,7 +8,6 @@ const save = function (method, url) {
       const description = document.querySelector("#description").value;
       const content = document.querySelector("#content").value;
 
-      // const url = `http://127.0.0.1:3000/api/v1/blog/${id}`;
       const data = {
         title,
         description,
