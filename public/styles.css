@@ -17,7 +17,12 @@ html {
 body {
   font-weight: 400;
   line-height: 1.6;
-  background: radial-gradient(#f7dad9, #f7dad9);
+
+  background-image: linear-gradient(
+    to right,
+    rgb(76, 161, 175),
+    rgb(196, 224, 229)
+  );
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -43,7 +48,14 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: #ffeac9;
+  /* background: #ffeac9; */
+
+  background-image: linear-gradient(
+    to right,
+    rgb(224, 234, 252),
+    rgb(207, 222, 243)
+  );
+
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
   border-radius: 2rem;
 }
@@ -61,7 +73,8 @@ body {
   flex-direction: column;
 
   margin-left: 5rem;
-  align-self: center;
+  margin-top: 1rem;
+  /* align-self: center; */
 }
 
 .post-minutes {
