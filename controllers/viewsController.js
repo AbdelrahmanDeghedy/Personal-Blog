@@ -28,3 +28,7 @@ exports.editBlog = async (req, res) => {
   const blog = await Blog.findById(req.params.id);
   res.status(200).render("edit", { blog });
 };
+
+exports.deleteBlog = (req, res) => {
+  res.status(200).render("delete");
+};

@@ -156,3 +156,35 @@ body {
 .submit:hover {
   transform: translateY(2px);
 }
+
+/* confirmation Message */
+
+.confirm-container {
+  display: flex;
+  margin: 10rem auto;
+  /* border-radius: 2rem; */
+  justify-content: space-around;
+  /* background-color: #fff; */
+  height: 10rem;
+  width: 80%;
+}
+
+.option {
+  border-radius: 2rem;
+  flex-basis: 40%;
+  background-color: #fff;
+  height: 10rem;
+  cursor: pointer;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  transition: all 0.3s;
+}
+
+.option:hover {
+  transform: translateY(2px);
+}
