@@ -8,4 +8,10 @@ block content
                 .post-date= `${blog.date.getDate()}/${blog.date.getMonth() + 1}/${blog.date.getFullYear()}`
             .primary-content
                 a.post-title-final= blog.title
-                .post-description= blog.content
+                - let x;
+                - const arr = blog.content.split("\n");
+                - for (let i = 0; i <= arr.length; i++)
+                    - x = arr[i]
+                    - if (arr[i] === '')
+                        br
+                    .post-description= x

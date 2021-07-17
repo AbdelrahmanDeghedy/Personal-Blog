@@ -2,13 +2,13 @@ extends base
 block content 
     form.form-container
         label.section-title(for='title') Title
-        input(id='title')
+        input(id='title' required)
 
         label.section-title(for='description') Descrition
-        textarea(id='description')
+        textarea(id='description' required)
 
         label.section-title(for='content') Content
-        textarea(id='content')
+        textarea(id='content' required)
 
         button.submit(type='submit') Save
     script(type="module" src='/js/create.js')
