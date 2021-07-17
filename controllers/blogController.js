@@ -1,3 +1,4 @@
+const { query } = require("express");
 const Blog = require("../models/blogs");
 
 const filterObj = (obj) => {
@@ -12,8 +13,9 @@ const filterObj = (obj) => {
 };
 
 exports.getAllBlogs = async (req, res, next) => {
-  const blogs = await Blog.find({});
-
+  let query = Blog.find();
+  query = query.sort("-date");
+  const blogs = await query;
   res.status(200).json({
     status: "success",
     length: blogs.length,

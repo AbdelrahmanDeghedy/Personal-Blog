@@ -2,7 +2,9 @@ const Blog = require("../models/blogs");
 
 exports.getHomeView = async (req, res) => {
   try {
-    const blogs = await Blog.find();
+    let query = Blog.find();
+    query = query.sort("-date");
+    const blogs = await query;
     res.status(200).render("base", { blogs });
   } catch (err) {
     console.log(err);
