@@ -2,6 +2,8 @@ const express = require("express");
 
 const app = express();
 
+const cookieParse = require("cookie-parser");
+
 const blogRouter = require("./routes/blogRoute");
 const userRouter = require("./routes/userRoute");
 const viewRouter = require("./routes/viewRoute");
@@ -10,6 +12,9 @@ const globalErrorHandling = require("./controllers/errorController");
 
 // Body Parser
 app.use(express.json({ limit: "10kb" }));
+
+// Cookie Parser
+app.use(cookieParse());
 
 // Serving Static Files
 app.use(express.static(`${__dirname}/public`));
