@@ -32,3 +32,7 @@ exports.editBlog = async (req, res) => {
 exports.deleteBlog = (req, res) => {
   res.status(200).render("delete");
 };
+
+exports.login = (req, res) => {
+  res.status(200).render("login");
+};

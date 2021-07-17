@@ -1,0 +1,11 @@
+extends base
+block content 
+    form.login-form
+        label(for='email') Email
+        input(type='email' id='email' required placeholder="Email")
+
+        label(for='password') Password
+        input(type='password' id='password' required placeholder="Password")
+
+        button.submit-login Submit
+    script(type="module" src='/js/login.js')

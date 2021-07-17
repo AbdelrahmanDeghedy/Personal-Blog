@@ -19,6 +19,6 @@ html(lang='en')
                             .post-minutes=`${blog.minutes === 0 ? 1 : blog.minutes} min read`
                             .post-date= `${blog.date.getDate()}/${blog.date.getMonth() + 1}/${blog.date.getFullYear()}`
                         .primary-content
-                            a.post-title(href=`${blog._id}`)= blog.title
+                            a.post-title(href=`view/${blog._id}`)= blog.title
                             .post-description= blog.description
         
