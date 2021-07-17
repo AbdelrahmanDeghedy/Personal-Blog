@@ -14,14 +14,17 @@ router
     authConteoller.restrictTo("admin"),
     blogController.postBlog
   );
+router.route("/view/:id").get(blogController.getOneBlog);
+
 router
-  .route("/:id")
-  .get(blogController.getOneBlog)
+  .route("/delete/:id")
   .delete(
     authConteoller.protect,
     authConteoller.restrictTo("admin"),
     blogController.deleteBlog
-  )
+  );
+router
+  .route("/edit/:id")
   .patch(
     authConteoller.protect,
     authConteoller.restrictTo("admin"),

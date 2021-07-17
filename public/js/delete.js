@@ -1,6 +1,6 @@
 document.querySelector(".option-yes").addEventListener("click", async () => {
-  const url = `http://127.0.0.1:3000/api/v1/blog/${
-    window.location.pathname.split("/")[1]
+  const url = `http://127.0.0.1:3000/api/v1/blog/delete/${
+    window.location.pathname.split("/")[2]
   }`;
   const response = await fetch(url, {
     method: "DELETE",
@@ -14,12 +14,11 @@ document.querySelector(".option-yes").addEventListener("click", async () => {
     referrerPolicy: "no-referrer",
   });
 
-  if (response.status !== 200) {
-    // catch an error
+  if (response.status === 200) {
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 1000);
   }
-  setTimeout(() => {
-    window.location.href = "/";
-  }, 1000);
 });
 
 document.querySelector(".option-no").addEventListener("click", () => {
