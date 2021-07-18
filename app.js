@@ -12,8 +12,6 @@ const globalErrorHandling = require("./controllers/errorController");
 
 const cors = require("cors");
 
-app.use(cors());
-
 // Body Parser
 app.use(express.json({ limit: "10kb" }));
 
@@ -22,6 +20,8 @@ app.use(cookieParse());
 
 // Serving Static Files
 app.use(express.static(`${__dirname}/public`));
+
+app.use(cors());
 
 app.use("/api/v1/blog", blogRouter);
 app.use("/api/v1/user", userRouter);
