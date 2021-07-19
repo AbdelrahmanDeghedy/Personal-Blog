@@ -10,7 +10,8 @@ const viewRouter = require("./routes/viewRoute");
 
 const globalErrorHandling = require("./controllers/errorController");
 
-const cors = require("cors");
+// const cors = require("cors");
+// app.use(cors());
 
 // Body Parser
 app.use(express.json({ limit: "10kb" }));
@@ -21,7 +22,6 @@ app.use(cookieParse());
 // Serving Static Files
 app.use(express.static(`${__dirname}/public`));
 
-// app.use(cors());
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
