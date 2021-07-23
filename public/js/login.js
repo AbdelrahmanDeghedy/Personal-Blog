@@ -21,9 +21,9 @@ document.querySelector(".login-form").addEventListener("submit", async (e) => {
     console.log(err);
   }
 
-  if (response.status === 200) {
-    setTimeout(() => {
-      window.location.href = "/";
-    }, 1000);
-  }
+  // if (response.status === 200) {
+  //   setTimeout(() => {
+  //     window.location.href = "/";
+  //   }, 1000);
+  // }
 });
