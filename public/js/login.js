@@ -17,6 +17,8 @@ document.querySelector(".login-form").addEventListener("submit", async (e) => {
       },
       body: JSON.stringify(data),
     });
+
+    await response.json();
   } catch (err) {
     console.log(err);
   }
