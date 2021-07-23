@@ -10,7 +10,8 @@ const viewRouter = require("./routes/viewRoute");
 
 const globalErrorHandling = require("./controllers/errorController");
 
-// const cors = require("cors");
+const cors = require("cors");
+app.options("*", cors()); // include before other routes
 // app.use(cors());
 
 // Body Parser
