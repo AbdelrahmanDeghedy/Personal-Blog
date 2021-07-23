@@ -8,14 +8,18 @@ document.querySelector(".login-form").addEventListener("submit", async (e) => {
     email,
     password,
   };
-  const response = await fetch(url, {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  } catch (err) {
+    console.log(err);
+  }
 
   if (response.status === 200) {
     setTimeout(() => {
