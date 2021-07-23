@@ -10,12 +10,10 @@ document.querySelector(".login-form").addEventListener("submit", async (e) => {
   };
   const response = await fetch(url, {
     method: "POST",
-    mode: "cors",
+    mode: "no-cors",
     headers: {
       "Content-Type": "application/json",
     },
-    redirect: "follow",
-    referrerPolicy: "no-referrer",
     body: JSON.stringify(data),
   });
 
