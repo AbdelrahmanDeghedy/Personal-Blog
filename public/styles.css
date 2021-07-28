@@ -238,3 +238,22 @@ body {
 
 .english-lang {
 }
+
+/* General Media Queries */
+@media screen and (max-width: 40rem) {
+  .title {
+    font-size: 4rem;
+  }
+  .secondary-content {
+    display: none;
+  }
+  .post-container,
+  .post-title-final,
+  .post-title,
+  .primary-content {
+    font-size: 1.8rem;
+  }
+  .post-description {
+    font-size: 1.2rem;
+  }
+}
