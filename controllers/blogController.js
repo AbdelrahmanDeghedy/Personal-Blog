@@ -1,9 +1,8 @@
-const { query } = require("express");
 const Blog = require("../models/blogs");
 
 const filterObj = (obj) => {
   let newObj = {};
-  const fields = ["title", "description", "content"];
+  const fields = ["title", "description", "content", "mixedLanguage"];
   Object.keys(obj).forEach((el) => {
     if (fields.includes(el)) {
       newObj[el] = obj[el];
@@ -48,6 +47,7 @@ exports.postBlog = async (req, res, next) => {
 };
 
 exports.deleteBlog = async (req, res, next) => {
+  // console.log(req.params.id);
   await Blog.findByIdAndDelete(req.params.id);
 
   res.status(200).json({

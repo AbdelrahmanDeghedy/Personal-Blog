@@ -14,6 +14,10 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: [true, "A blog must have a description"],
     },
+    mixedLanguage: {
+      type: Boolean,
+      default: false,
+    },
     content: {
       type: String,
       required: [true, "A blog must have content!"],

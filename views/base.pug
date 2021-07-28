@@ -16,10 +16,14 @@ html(lang='en')
             each blog in blogs
                 .content-container
                     .post-container
-                        .secondary-content
+                        .secondary-content 
                             .post-minutes=`${blog.minutes === 0 ? 1 : blog.minutes} min read`
                             .post-date= `${blog.date.getDate()}/${blog.date.getMonth() + 1}/${blog.date.getFullYear()}`
-                        .primary-content
-                            a.post-title(href=`view/${blog._id}`)= blog.title
-                            .post-description= blog.description
-        
+                        - if (blog.mixedLanguage)
+                            .primary-content(dir='rtl' lang='ar')
+                                a.post-title(href=`view/${blog._id}`)= blog.title
+                                .post-description= blog.description
+                        - else 
+                            .primary-content
+                                a.post-title(href=`view/${blog._id}`)= blog.title
+                                .post-description= blog.description

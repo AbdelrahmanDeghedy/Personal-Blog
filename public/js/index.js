@@ -1,4 +1,36 @@
 const save = function (method, url) {
+  const mixedLang = document.querySelector(".mixed-lang");
+  const englishLang = document.querySelector(".english-lang");
+  const title = document.getElementById("title");
+  const description = document.getElementById("description");
+  const content = document.getElementById("content");
+
+  let mixedLanguage = false;
+
+  mixedLang.addEventListener("click", (e) => {
+    e.preventDefault();
+    mixedLang.disabled = true;
+    englishLang.disabled = false;
+
+    title.setAttribute("dir", "rtl");
+    description.setAttribute("dir", "rtl");
+    content.setAttribute("dir", "rtl");
+
+    mixedLanguage = true;
+  });
+
+  englishLang.addEventListener("click", (e) => {
+    e.preventDefault();
+    englishLang.disabled = true;
+    mixedLang.disabled = false;
+
+    title.setAttribute("dir", "ltr");
+    description.setAttribute("dir", "ltr");
+    content.setAttribute("dir", "ltr");
+
+    mixedLanguage = false;
+  });
+
   document
     .querySelector(".form-container")
     .addEventListener("submit", async (e) => {
@@ -12,6 +44,7 @@ const save = function (method, url) {
         title,
         description,
         content,
+        mixedLanguage,
       };
       const response = await fetch(url, {
         method,
@@ -30,8 +63,6 @@ const save = function (method, url) {
       setTimeout(() => {
         window.location.href = "/";
       }, 1000);
-
-      console.log(response);
     });
 };
 

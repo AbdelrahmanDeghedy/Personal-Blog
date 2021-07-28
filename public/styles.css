@@ -91,6 +91,10 @@ body {
 
   align-self: center;
   flex-direction: column;
+
+  /* Align Right */
+  /* display: flex;
+  align-items: flex-end; */
 }
 
 .post-title,
@@ -200,4 +204,37 @@ body {
 
 .option:hover {
   transform: translateY(2px);
+}
+
+/* Languages Features */
+
+.lang-container {
+  display: flex;
+  height: 10rem;
+}
+
+.lang-btns {
+  width: 100%;
+  margin: 2rem;
+
+  border-radius: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  border: none;
+
+  transition: all 0.2s;
+}
+
+.lang-btns:hover {
+  transform: translateY(2px);
+}
+
+.selected-lang {
+  transform: translateY(2px);
+}
+
+.mixed-lang {
+}
+
+.english-lang {
 }

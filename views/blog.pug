@@ -6,12 +6,23 @@ block content
             .secondary-content
                 .post-minutes=`${blog.minutes === 0 ? 1 : blog.minutes} min read`
                 .post-date= `${blog.date.getDate()}/${blog.date.getMonth() + 1}/${blog.date.getFullYear()}`
-            .primary-content
-                a.post-title-final= blog.title
-                - let x;
-                - const arr = blog.content.split("\n");
-                - for (let i = 0; i <= arr.length; i++)
-                    - x = arr[i]
-                    - if (arr[i] === '')
-                        br
-                    .post-description= x
+            - if (!blog.mixedLanguage)
+                .primary-content
+                    .post-title-final= blog.title
+                    - let x;
+                    - const arr = blog.content.split("\n");
+                    - for (let i = 0; i <= arr.length; i++)
+                        - x = arr[i]
+                        - if (arr[i] === '')
+                            br
+                        .post-description= x
+            - else
+                .primary-content(dir='rtl' lang='ar')
+                    a.post-title-final= blog.title
+                    - let x;
+                    - const arr = blog.content.split("\n");
+                    - for (let i = 0; i <= arr.length; i++)
+                        - x = arr[i]
+                        - if (arr[i] === '')
+                            br
+                        .post-description= x
