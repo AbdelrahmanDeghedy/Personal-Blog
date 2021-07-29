@@ -239,12 +239,15 @@ body {
 .english-lang {
 }
 
+/* Style Links */
+.link {
+  font-size: 2rem;
+}
+
 /* Change the height of <br> */
-br {
-  content: "";
-  margin: 2em;
-  display: block;
-  font-size: 24%;
+
+.br-container {
+  height: 1rem;
 }
 
 .space-english {
@@ -295,5 +298,9 @@ br {
 
   .space-arabic {
     margin-right: 2rem;
+  }
+
+  .link {
+    font-size: 1rem;
   }
 }
