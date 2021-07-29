@@ -258,6 +258,39 @@ body {
   margin-right: 6rem;
 }
 
+/* Image */
+
+.image-container {
+  background-color: red;
+  width: 80%;
+  margin: 0 auto;
+
+  border-radius: 3rem;
+  overflow: hidden;
+  height: 40rem;
+  display: flex;
+}
+
+.format-img {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Quote */
+
+.quote-container-arabic {
+  margin-right: 1rem;
+  padding: 1rem;
+  border-right: 1rem solid gray;
+}
+
+.quote-container-english {
+  margin-left: 1rem;
+  padding: 1rem;
+  border-left: 1rem solid gray;
+}
+
 /* General Media Queries */
 @media screen and (max-width: 50rem) {
   .title {
@@ -302,5 +335,9 @@ body {
 
   .link {
     font-size: 1rem;
+  }
+
+  .image-container {
+    height: 20rem;
   }
 }

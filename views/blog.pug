@@ -6,41 +6,30 @@ block content
             .secondary-content
                 .post-minutes=`${blog.minutes === 0 ? 1 : blog.minutes} min read`
                 .post-date= `${blog.date.getDate()}/${blog.date.getMonth() + 1}/${blog.date.getFullYear()}`
-            - if (!blog.mixedLanguage)
-                .primary-content
-                    .post-title-final= blog.title
-                    - let x;
-                    - const arr = blog.content.split("\n");
-                    //- - console.log(arr);
-                    - for (let i = 0; i <= arr.length; i++)
-                        - x = arr[i]
-                        - if (arr[i] === '')
-                            .br-container
-                                br
-                        - if (arr[i]?.startsWith("\tXXXX")  || arr[i]?.startsWith("XXXX"))
-                            - x = arr[i]?.replace("XXXX", "")
-                            .post-description.space-english= x
-                        - else if (arr[i]?.startsWith("\tLLLL")  || arr[i]?.startsWith("LLLL"))
-                            - x = arr[i]?.replace("LLLL", "")
-                            a.link(target='_blank' href=`${x}`)=x
-                        - else 
-                            .post-description= x
-            - else
-                .primary-content(dir='rtl' lang='ar')
-                    a.post-title-final= blog.title
-                    - let x;
-                    - const arr = blog.content.split("\n");
-                    //- - console.log(arr);
-                    - for (let i = 0; i <= arr.length; i++)
-                        - x = arr[i]
-                        - if (arr[i] === '')
-                            .br-container
-                                br
-                        - if (arr[i]?.startsWith("\tXXXX")  || arr[i]?.startsWith("XXXX"))
-                            - x = arr[i]?.replace("XXXX", "")
-                            .post-description.space-arabic= x
-                        - else if (arr[i]?.startsWith("\tLLLL")  || arr[i]?.startsWith("LLLL"))
-                            - x = arr[i]?.replace("LLLL", "")
-                            a.link(target='_blank' href=`${x}`)=x
-                        - else 
-                            .post-description= x
+            .primary-content(dir=`${blog.mixedLanguage ? "rtl" : "ltr"}`)
+                a.post-title-final= blog.title
+                - let x;
+                - const arr = blog.content.split("\n");
+                //- - console.log(arr);
+                - for (let i = 0; i <= arr.length; i++)
+                    - x = arr[i]
+                    - if (arr[i] === '')
+                        .br-container
+                            br
+                    - if (arr[i]?.startsWith("\tXXXX")  || arr[i]?.startsWith("XXXX"))
+                        - x = arr[i]?.replace("XXXX", "")
+                        .post-description(class=`${!blog.mixedLanguage ? "space-english" : "space-arabic"}`)= x
+                    - else if (arr[i]?.startsWith("\tLLLL")  || arr[i]?.startsWith("LLLL"))
+                        - x = arr[i]?.replace("LLLL", "", 1)
+                        - linkText = x?.split("LLLL")[1]
+                        - actualLink = x?.split("LLLL")[0]
+                        a.link(target='_blank' href=`${actualLink}`)=linkText || x
+                    - else if (arr[i]?.startsWith("\tIIII")  || arr[i]?.startsWith("IIII"))
+                        - x = arr[i]?.replace("IIII", "", 1)
+                        .image-container
+                            img.format-img(src=`${x}`)
+                    - else if (arr[i]?.startsWith("\tQQQQ")  || arr[i]?.startsWith("QQQQ"))
+                        - x = arr[i]?.replace("QQQQ", "", 1)                            
+                        .post-description(class=`${blog.mixedLanguage ? "quote-container-arabic" : "quote-container-english"}`)= x
+                    - else 
+                        .post-description= x
