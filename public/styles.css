@@ -71,10 +71,10 @@ body {
   display: flex;
   flex-basis: 10%;
   flex-direction: column;
+  color: gray;
 
   margin-left: 5rem;
   margin-top: 1rem;
-  /* align-self: center; */
 }
 
 .post-minutes {
@@ -239,13 +239,26 @@ body {
 .english-lang {
 }
 
+/* Change the height of <br> */
+br {
+  content: "";
+  margin: 2em;
+  display: block;
+  font-size: 24%;
+}
+
+.space-english {
+  margin-left: 6rem;
+}
+
+.space-arabic {
+  margin-right: 6rem;
+}
+
 /* General Media Queries */
-@media screen and (max-width: 40rem) {
+@media screen and (max-width: 50rem) {
   .title {
     font-size: 4rem;
-  }
-  .secondary-content {
-    display: none;
   }
   .post-container,
   .post-title-final,
@@ -253,7 +266,34 @@ body {
   .primary-content {
     font-size: 1.8rem;
   }
+  .primary-content {
+    width: 100%;
+  }
   .post-description {
     font-size: 1.2rem;
+  }
+
+  .post-container {
+    flex-direction: column;
+  }
+
+  .secondary-content {
+    flex-direction: row;
+    margin: 0 auto;
+  }
+  .post-date {
+    /* background-color: red; */
+    align-self: flex-end;
+  }
+  .post-minutes {
+    /* background-color: orangered; */
+    margin-right: 1rem;
+  }
+  .space-english {
+    margin-left: 2rem;
+  }
+
+  .space-arabic {
+    margin-right: 2rem;
   }
 }

@@ -11,11 +11,16 @@ block content
                     .post-title-final= blog.title
                     - let x;
                     - const arr = blog.content.split("\n");
+                    //- - console.log(arr);
                     - for (let i = 0; i <= arr.length; i++)
                         - x = arr[i]
                         - if (arr[i] === '')
                             br
-                        .post-description= x
+                        - if (arr[i]?.startsWith("\tXXXX")  || arr[i]?.startsWith("XXXX"))
+                            - x = arr[i]?.replace("XXXX", "")
+                            .post-description.space-english= x
+                        - else 
+                            .post-description= x
             - else
                 .primary-content(dir='rtl' lang='ar')
                     a.post-title-final= blog.title
