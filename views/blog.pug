@@ -30,4 +30,8 @@ block content
                         - x = arr[i]
                         - if (arr[i] === '')
                             br
-                        .post-description= x
+                        - if (arr[i]?.startsWith("\tXXXX")  || arr[i]?.startsWith("XXXX"))
+                            - x = arr[i]?.replace("XXXX", "")
+                            .post-description.space-arabic= x
+                        - else 
+                            .post-description= x

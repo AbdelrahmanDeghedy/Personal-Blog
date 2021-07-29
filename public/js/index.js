@@ -57,12 +57,12 @@ const save = function (method, url) {
         body: JSON.stringify(data),
       });
 
-      if (response.status !== 200) {
+      if (response.status === 200) {
         // catch an error
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 1000);
       }
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 1000);
     });
 };
 

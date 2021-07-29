@@ -15,7 +15,7 @@ app.options("*", cors()); // include before other routes
 // app.use(cors());
 
 // Body Parser
-app.use(express.json({ limit: "10kb" }));
+app.use(express.json({ limit: "50mb" }));
 
 // Cookie Parser
 app.use(cookieParse());
