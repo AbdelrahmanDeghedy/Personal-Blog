@@ -11,11 +11,17 @@ document.querySelector(".login-form").addEventListener("submit", async (e) => {
 
   let response;
   try {
+    let headers = new Headers();
+
+    headers.append("Content-Type", "application/json");
+    headers.append("Accept", "application/json");
+    headers.append("Origin", "https://deghedeeaat.herokuapp.com/");
+
     response = await fetch(url, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      mode: "cors",
+      credentials: "include",
+      headers: headers,
       body: JSON.stringify(data),
     });
 
