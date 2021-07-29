@@ -40,7 +40,9 @@ block content
                     - else if (arr[i]?.startsWith("\tQQQQ")  || arr[i]?.startsWith("QQQQ"))
                         - x = arr[i]?.replace("QQQQ", "", 1)                            
                         .post-description(dir=`${mixedLangCurrLine ? "rtl" : "ltr"}` class=`${mixedLangCurrLine ? "quote-container-arabic" : "quote-container-english"}`)= x
-
+                    - else if (arr[i]?.startsWith("\BBBB")  || arr[i]?.startsWith("BBBB"))
+                        - x = arr[i]?.replace("BBBB", "", 1)                            
+                        .post-description.bold-me= x
                     - else 
                         .post-description(dir=`${mixedLangCurrLine ? "rtl" : "ltr"}`)= x
 
