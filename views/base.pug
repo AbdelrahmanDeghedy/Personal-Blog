@@ -19,11 +19,8 @@ html(lang='en')
                         .secondary-content 
                             .post-minutes=`${blog.minutes === 0 ? 1 : blog.minutes} min read`
                             .post-date= `${blog.date.getDate()}/${blog.date.getMonth() + 1}/${blog.date.getFullYear()}`
-                        - if (blog.mixedLanguage)
-                            .primary-content(dir='rtl' lang='ar')
-                                a.post-title(href=`view/${blog._id}`)= blog.title
-                                .post-description= blog.description
-                        - else 
-                            .primary-content
-                                a.post-title(href=`view/${blog._id}`)= blog.title
-                                .post-description= blog.description
+                        .primary-content
+                            - let langTitle = blog.title?.match(/[\u0621-\u064A]+/)
+                            - let langDesc = blog.description?.match(/[\u0621-\u064A]+/)
+                            a.post-title(dir=`${langTitle ? "rtl" : "ltr"}` class=`${langTitle ? "stick-right" : ""}` href=`view/${blog._id}`)= blog.title
+                            .post-description(dir=`${langDesc ? "rtl" : "ltr"}`)= blog.description

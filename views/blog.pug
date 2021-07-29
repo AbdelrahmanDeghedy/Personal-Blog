@@ -6,19 +6,28 @@ block content
             .secondary-content
                 .post-minutes=`${blog.minutes === 0 ? 1 : blog.minutes} min read`
                 .post-date= `${blog.date.getDate()}/${blog.date.getMonth() + 1}/${blog.date.getFullYear()}`
-            .primary-content(dir=`${blog.mixedLanguage ? "rtl" : "ltr"}`)
-                a.post-title-final= blog.title
+        
+    
+            - let langTitle = blog.title?.match(/[\u0621-\u064A]+/)
+            .primary-content(dir=`${langTitle ? "rtl" : "ltr"}`)
+                a.post-title-final(dir=`${langTitle ? "rtl" : "ltr"}`)= blog.title
                 - let x;
                 - const arr = blog.content.split("\n");
                 //- - console.log(arr);
+                - let mixedLangCurrLine = blog.mixedLanguage;
                 - for (let i = 0; i <= arr.length; i++)
+                    - if (arr[i]?.match(/[\u0621-\u064A]+/))
+                        //- - console.log("aa")
+                        - mixedLangCurrLine = 1
+                    - else 
+                        - mixedLangCurrLine = 0
                     - x = arr[i]
                     - if (arr[i] === '')
                         .br-container
                             br
                     - if (arr[i]?.startsWith("\tXXXX")  || arr[i]?.startsWith("XXXX"))
                         - x = arr[i]?.replace("XXXX", "")
-                        .post-description(class=`${!blog.mixedLanguage ? "space-english" : "space-arabic"}`)= x
+                        .post-description(dir=`${mixedLangCurrLine ? "rtl" : "ltr"}` class=`${!mixedLangCurrLine ? "space-english" : "space-arabic"}`)= x
                     - else if (arr[i]?.startsWith("\tLLLL")  || arr[i]?.startsWith("LLLL"))
                         - x = arr[i]?.replace("LLLL", "", 1)
                         - linkText = x?.split("LLLL")[1]
@@ -30,6 +39,8 @@ block content
                             img.format-img(src=`${x}`)
                     - else if (arr[i]?.startsWith("\tQQQQ")  || arr[i]?.startsWith("QQQQ"))
                         - x = arr[i]?.replace("QQQQ", "", 1)                            
-                        .post-description(class=`${blog.mixedLanguage ? "quote-container-arabic" : "quote-container-english"}`)= x
+                        .post-description(dir=`${mixedLangCurrLine ? "rtl" : "ltr"}` class=`${mixedLangCurrLine ? "quote-container-arabic" : "quote-container-english"}`)= x
+
                     - else 
-                        .post-description= x
+                        .post-description(dir=`${mixedLangCurrLine ? "rtl" : "ltr"}`)= x
+

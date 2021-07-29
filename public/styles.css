@@ -87,14 +87,16 @@ body {
 }
 
 .primary-content {
-  flex-basis: 90%;
+  flex-basis: 80%;
 
   align-self: center;
   flex-direction: column;
 
-  /* Align Right */
-  /* display: flex;
-  align-items: flex-end; */
+  display: flex;
+}
+
+.stick-right {
+  align-self: flex-end;
 }
 
 .post-title,
