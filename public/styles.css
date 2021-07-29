@@ -358,4 +358,8 @@ body {
   .quote-container-english {
     border-left: 0.5rem solid gray;
   }
+
+  .title {
+    margin-bottom: -2rem;
+  }
 }
