@@ -348,7 +348,8 @@ body {
   }
 
   .image-container {
-    height: 20rem;
+    height: 15rem;
+    width: 70%;
     border-radius: 1rem;
   }
 
