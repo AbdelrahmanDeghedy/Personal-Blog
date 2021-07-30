@@ -260,7 +260,7 @@ body {
 /* Image */
 
 .image-container {
-  background-color: red;
+  /* background-color: red; */
   width: 80%;
   margin: 0 auto;
 
@@ -349,6 +349,7 @@ body {
 
   .image-container {
     height: 20rem;
+    border-radius: 1rem;
   }
 
   .quote-container-arabic {
