@@ -16,7 +16,6 @@ document.querySelector(".login-form").addEventListener("submit", async (e) => {
     headers.append("Content-Type", "application/json");
     headers.append("Accept", "application/json");
     headers.append("Origin", "https://deghedeeaat.herokuapp.com");
-    // headers.append("Origin", "http://localhost:3000");
 
     response = await fetch(url, {
       method: "POST",
