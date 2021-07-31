@@ -10,11 +10,11 @@ router.route("/").get(viewController.getHomeView);
 
 router.route("/login").get(viewController.login);
 
-router.route("/view/:id").get(viewController.getOneBlog);
+router.route("/view/:slug").get(viewController.getOneBlog);
 router.use(authConteoller.protect, authConteoller.restrictTo("admin"));
 router.route("/create").get(viewController.createBlog);
 
-router.route("/edit/:id").get(viewController.editBlog);
-router.route("/delete/:id").get(viewController.deleteBlog);
+router.route("/edit/:slug").get(viewController.editBlog);
+router.route("/delete/:slug").get(viewController.deleteBlog);
 
 module.exports = router;

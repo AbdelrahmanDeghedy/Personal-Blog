@@ -13,7 +13,7 @@ exports.getHomeView = async (req, res) => {
 
 exports.getOneBlog = async (req, res) => {
   try {
-    const blog = await Blog.findById(req.params.id);
+    const blog = await Blog.findOne({ slug: req.params.slug });
     res.status(200).render("blog", { blog });
   } catch (err) {
     console.log(err);
@@ -25,7 +25,7 @@ exports.createBlog = (req, res) => {
 };
 
 exports.editBlog = async (req, res) => {
-  const blog = await Blog.findById(req.params.id);
+  const blog = await Blog.findOne({ slug: req.params.slug });
   res.status(200).render("edit", { blog });
 };
 

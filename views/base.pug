@@ -1,16 +1,13 @@
 doctype
 html(lang='en')
     head 
-        each blog in blogs ? blogs : []
-            meta(charset='UTF-8')
-            meta(http-equiv='X-UA-Compatible' content='IE=edge')
-            meta(name='viewport' content='width=device-width, initial-scale=1.0')
-            - const x = blog?.name || "DeghedeEaaT"
-            meta(property="og:title" content=`${x}`)
-            //- meta(property="og:title" content=`DeghedeEaaT`)
-            meta(property="og:description" content="DeghedeEaaT is a place where Abdelrahman writes about his thoughts.")
-            meta(property="og:image" content="https://i.ibb.co/LNH49W4/small-version.jpg")
-            meta(property="og:url" content="https://deghedeeaat.herokuapp.com/") 
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        meta(property="og:title" content="DeghedeEaaT")
+        meta(property="og:description" content="DeghedeEaaT is a place where Abdelrahman writes about his thoughts.")
+        meta(property="og:image" content="https://i.ibb.co/LNH49W4/small-version.jpg")
+        meta(property="og:url" content="https://deghedeeaat.herokuapp.com/") 
 
         link(rel='preconnect' href='https://fonts.googleapis.com')
         link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)    
@@ -30,5 +27,5 @@ html(lang='en')
                         .primary-content
                             - let langTitle = blog.title?.match(/[\u0621-\u064A]+/)
                             - let langDesc = blog.description?.match(/[\u0621-\u064A]+/)
-                            a.post-title(dir=`${langTitle ? "rtl" : "ltr"}` class=`${langTitle ? "stick-right" : ""}` href=`view/${blog._id}`)= blog.title
+                            a.post-title(dir=`${langTitle ? "rtl" : "ltr"}` class=`${langTitle ? "stick-right" : ""}` href=`view/${blog.slug}`)= blog.title
                             .post-description(dir=`${langDesc ? "rtl" : "ltr"}`)= blog.description

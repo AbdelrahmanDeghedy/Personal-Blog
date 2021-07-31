@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 
+const slugify = require("slugify");
+
 const blogSchema = new mongoose.Schema(
   {
     title: {
       type: String,
       required: [true, "A blog must have a title"],
+      unique: true,
     },
     date: {
       type: Date,
@@ -22,6 +25,8 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: [true, "A blog must have content!"],
     },
+    slug: String,
+    image: String,
   },
   {
     toJSON: { virtuals: true },
@@ -31,6 +36,13 @@ const blogSchema = new mongoose.Schema(
 
 blogSchema.virtual("minutes").get(function () {
   return parseInt(this.content.split(" ").length / 130);
+});
+
+blogSchema.index({ slug: 1 });
+
+blogSchema.pre("save", function (next) {
+  this.slug = slugify(this.title, { lower: true });
+  next();
 });
 
 const Blog = mongoose.model("Blog", blogSchema);
