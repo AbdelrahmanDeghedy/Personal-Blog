@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const app = require("./app");
 
 const dotenv = require("dotenv");
+const { createBlog } = require("./controllers/viewsController");
 
 dotenv.config({ path: "./config.env" }); // the path of the config file
 

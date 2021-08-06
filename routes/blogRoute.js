@@ -16,19 +16,17 @@ router
   );
 router.route("/view/:id").get(blogController.getOneBlog);
 
-router
-  .route("/delete/:id")
-  .delete(
-    authConteoller.protect,
-    authConteoller.restrictTo("admin"),
-    blogController.deleteBlog
-  );
-router
-  .route("/edit/:id")
-  .patch(
-    authConteoller.protect,
-    authConteoller.restrictTo("admin"),
-    blogController.updateBlog
-  );
+router.use(authConteoller.protect);
+
+router.route("/delete/:slug").delete(
+  // authConteoller.protect,
+  authConteoller.restrictTo("admin"),
+  blogController.deleteBlog
+);
+router.route("/edit/:slug").patch(
+  // authConteoller.protect,
+  authConteoller.restrictTo("admin"),
+  blogController.updateBlog
+);
 
 module.exports = router;

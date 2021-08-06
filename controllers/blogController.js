@@ -47,8 +47,7 @@ exports.postBlog = async (req, res, next) => {
 };
 
 exports.deleteBlog = async (req, res, next) => {
-  // console.log(req.params.id);
-  await Blog.findByIdAndDelete(req.params.id);
+  await Blog.findOneAndDelete({ slug: req.params.slug });
 
   res.status(200).json({
     status: "success",
@@ -57,8 +56,8 @@ exports.deleteBlog = async (req, res, next) => {
 };
 
 exports.updateBlog = async (req, res, next) => {
-  const blog = await Blog.findByIdAndUpdate(
-    req.params.id,
+  const blog = await Blog.findOneAndUpdate(
+    { slug: req.params.slug },
     filterObj(req.body),
     {
       new: true,

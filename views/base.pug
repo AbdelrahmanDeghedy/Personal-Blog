@@ -9,7 +9,7 @@ html(lang='en')
         meta(property="og:image" content="https://i.ibb.co/LNH49W4/small-version.jpg")
         meta(property="og:url" content="https://deghedeeaat.herokuapp.com/") 
         meta(name="twitter:card" content="summary_large_image")
-        
+
         link(rel='preconnect' href='https://fonts.googleapis.com')
         link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)    
         link(href='https://fonts.googleapis.com/css2?family=Rochester&display=swap' rel='stylesheet')
@@ -26,7 +26,7 @@ html(lang='en')
                             .post-minutes=`${blog.minutes === 0 ? 1 : blog.minutes} min read`
                             .post-date= `${blog.date.getDate()}/${blog.date.getMonth() + 1}/${blog.date.getFullYear()}`
                         .primary-content
-                            - let langTitle = blog.title?.match(/[\u0621-\u064A]+/)
-                            - let langDesc = blog.description?.match(/[\u0621-\u064A]+/)
+                            - let langTitle = blog.title?.match(/[\u0621-\u064A]+/);
+                            - let langDesc = blog.description?.match(/[\u0621-\u064A]+/);
                             a.post-title(dir=`${langTitle ? "rtl" : "ltr"}` class=`${langTitle ? "stick-right" : ""}` href=`view/${blog.slug}`)= blog.title
                             .post-description(dir=`${langDesc ? "rtl" : "ltr"}`)= blog.description
