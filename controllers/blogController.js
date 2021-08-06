@@ -2,7 +2,14 @@ const Blog = require("../models/blogs");
 
 const filterObj = (obj) => {
   let newObj = {};
-  const fields = ["title", "description", "content", "mixedLanguage", "date"];
+  const fields = [
+    "title",
+    "description",
+    "content",
+    "mixedLanguage",
+    "date",
+    "audio",
+  ];
   Object.keys(obj).forEach((el) => {
     if (fields.includes(el)) {
       newObj[el] = obj[el];

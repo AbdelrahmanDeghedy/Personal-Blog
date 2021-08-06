@@ -27,6 +27,9 @@ const blogSchema = new mongoose.Schema(
     },
     slug: String,
     image: String,
+    audio: {
+      type: String,
+    },
   },
   {
     toJSON: { virtuals: true },

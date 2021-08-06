@@ -6,8 +6,8 @@ block content
             .secondary-content
                 .post-minutes=`${blog.minutes === 0 ? 1 : blog.minutes} min read`
                 .post-date= `${blog.date.getDate()}/${blog.date.getMonth() + 1}/${blog.date.getFullYear()}`
-        
-    
+
+
             - let langTitle = blog.title?.match(/[\u0621-\u064A]+/)
             .primary-content(dir=`${langTitle ? "rtl" : "ltr"}`)
                 a.post-title-final(dir=`${langTitle ? "rtl" : "ltr"}`)= blog.title
@@ -44,4 +44,8 @@ block content
                         .post-description.bold-me= x
                     - else 
                         .post-description(dir=`${mixedLangCurrLine ? "rtl" : "ltr"}`)= x
+    .audio-conteiner
+        //- iframe(width="300" height="60" src="https://vocaroo.com/embed/194ciSAFZbMn?autoplay=0" frameborder="0" allow="autoplay")
+        iframe(width="300" height="60" src=`${blog.audio || ""}` frameborder="0" allow="autoplay")
+        
 
