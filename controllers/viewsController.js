@@ -17,8 +17,8 @@ exports.getOneBlog = async (req, res) => {
     if (process.env.NODE_ENV === "production") {
       blog.views++;
     }
-    // await blog.save();
-    res.status(200).render("blog", { blog });
+    await blog.save();
+    return res.status(200).render("blog", { blog });
   } catch (err) {
     console.log(err);
   }
