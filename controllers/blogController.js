@@ -32,8 +32,7 @@ exports.getAllBlogs = async (req, res, next) => {
 };
 
 exports.getOneBlog = async (req, res, next) => {
-  const blog = await Blog.findOne({ _id: req.params.id });
-
+  const blog = await Blog.findOne({ slug: req.params.slug });
   res.status(200).json({
     status: "success",
     data: {
@@ -76,6 +75,17 @@ exports.updateBlog = async (req, res, next) => {
     status: "success",
     data: {
       blog,
+    },
+  });
+};
+
+exports.getNumberOfViews = async (req, res, next) => {
+  const blog = await Blog.findOne({ slug: req.params.slug });
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      views: blog.views,
     },
   });
 };

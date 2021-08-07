@@ -30,6 +30,10 @@ const blogSchema = new mongoose.Schema(
     audio: {
       type: String,
     },
+    views: {
+      type: Number,
+      default: 0,
+    },
   },
   {
     toJSON: { virtuals: true },

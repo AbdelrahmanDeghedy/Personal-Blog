@@ -18,6 +18,8 @@ router.route("/view/:id").get(blogController.getOneBlog);
 
 router.use(authConteoller.protect);
 
+router.route("/views/:slug").get(blogController.getNumberOfViews);
+
 router.route("/delete/:slug").delete(
   // authConteoller.protect,
   authConteoller.restrictTo("admin"),
