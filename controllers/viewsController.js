@@ -14,9 +14,9 @@ exports.getHomeView = async (req, res) => {
 exports.getOneBlog = async (req, res) => {
   try {
     const blog = await Blog.findOne({ slug: req.params.slug });
-    // if (process.env.NODE_ENV === "production") {
-    // blog.views++;
-    // }
+    if (process.env.NODE_ENV === "production") {
+      blog.views++;
+    }
     // await blog.save();
     res.status(200).render("blog", { blog });
   } catch (err) {
